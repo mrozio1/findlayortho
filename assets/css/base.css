@@ -1,0 +1,340 @@
+/* ===============================================
+	base.css
+	Self-hosted structural framework for Findlay Orthodontics.
+	Replaces the third-party Sesame Communications global
+	stylesheet: reset, grid, nav mechanics, buttons, forms,
+	and slideshow scaffolding. Brand-specific styling lives
+	in local.css, which loads after this file.
+=============================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #231f20;
+  background: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  vertical-align: middle;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+#content ul, #content ol {
+  padding-left: 1.4em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 0.5em;
+  font-weight: 400;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.hide {
+  display: none !important;
+}
+
+/* ===============================================
+	grid
+=============================================== */
+.container {
+  width: 100%;
+  max-width: 75em;
+  margin: 0 auto;
+  padding: 0 1.25em;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* ===============================================
+	buttons
+=============================================== */
+button, .button {
+  display: inline-block;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #579ca8;
+  border: 0;
+  padding: 0.85em 1.75em;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+button:hover, .button:hover {
+  background-color: #003f59;
+  color: #fff;
+}
+.button-medium {
+  font-size: 1em;
+}
+.box-round {
+  border-radius: 0.3em;
+}
+.box-shadow {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+.site-button-color {
+  background-color: #579ca8;
+}
+
+.spotbtn {
+  display: inline-block;
+  margin-top: 1em;
+  padding: 0.85em 1.75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+  background-color: #579ca8;
+  border-radius: 0.3em;
+  transition: background-color 0.25s ease;
+}
+.spotbtn:hover {
+  background-color: #003f59;
+}
+
+/* ===============================================
+	forms
+=============================================== */
+fieldset {
+  border: 0;
+  margin: 0 0 1.5em;
+  padding: 0;
+}
+legend {
+  font-weight: 700;
+  margin-bottom: 1em;
+  padding: 0;
+}
+form label {
+  display: block;
+  margin-bottom: 1em;
+}
+form.full label,
+label.width1 {
+  width: 100%;
+}
+label.width2, p.width2 {
+  max-width: 40em;
+}
+form label span {
+  display: block;
+  margin-bottom: 0.35em;
+  font-weight: 700;
+}
+form label.required span::after {
+  content: ' *';
+  color: #c0392b;
+}
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="number"],
+form textarea,
+form select {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.6em 0.75em;
+  border: 1px solid #c2c0c4;
+  border-radius: 0.25em;
+  background: #fff;
+  color: #231f20;
+}
+form input:focus,
+form textarea:focus,
+form select:focus {
+  outline: 2px solid #579ca8;
+  outline-offset: 1px;
+}
+p.notice {
+  padding: 0.75em 1em;
+  background: #f4f4f4;
+  border-left: 3px solid #579ca8;
+}
+
+/* ===============================================
+	main nav
+=============================================== */
+#main-nav ul li {
+  list-style: none;
+}
+#main-nav .collapsible > ul {
+  display: none;
+}
+#main-nav .collapsible.open > ul {
+  display: inline-block;
+}
+#main-nav ul ul {
+  list-style: none;
+}
+@media only screen and (min-width: 64em) {
+  #main-nav .trigger {
+    display: none;
+  }
+  #main-nav .collapsible > ul {
+    display: block;
+  }
+  #main-nav ul li {
+    display: inline-block;
+    float: none;
+  }
+  #main-nav ul ul {
+    display: none;
+  }
+  #main-nav ul li:hover ul,
+  #main-nav ul li.open ul {
+    display: block;
+  }
+}
+
+/* ===============================================
+	icons (self-hosted SVG sprite, replaces Font Awesome)
+=============================================== */
+.icon svg,
+.slidecontrol svg {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+/* ===============================================
+	slideshow / cycle
+	(the jQuery Cycle2 plugin bundled in aggregate.js manages slide
+	positioning/visibility itself via inline styles; this just gives
+	the container the stacking context it expects)
+=============================================== */
+.cycle-slideshow {
+  position: relative;
+  overflow: hidden;
+}
+.cycle-slideshow > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cycle-pager {
+  display: flex;
+  flex-wrap: wrap;
+}
+.slidecontrol {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  cursor: pointer;
+  color: #fff;
+  background: rgba(0, 63, 89, 0.55);
+  width: 2.4em;
+  height: 2.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.slidecontrol.cycle-prev {
+  left: 0.75em;
+}
+.slidecontrol.cycle-next {
+  right: 0.75em;
+}
+
+/* ===============================================
+	sidebar / subnav / content
+=============================================== */
+#subnav {
+  background: #f4f4f4;
+  padding: 0.85em 0;
+  font-size: 0.9em;
+}
+#subnav .divider {
+  margin: 0 0.4em;
+  color: #c2c0c4;
+}
+
+#bd .container {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+#sidebar:empty,
+#sidebar:has(> :empty:only-child) {
+  display: none;
+}
+
+/* ===============================================
+	social media / footer
+=============================================== */
+.socialmedia a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2em;
+  height: 2.2em;
+  margin-right: 0.4em;
+  border-radius: 50%;
+  background: #579ca8;
+  color: #fff;
+}
+.socialmedia a:hover {
+  background: #003f59;
+}
+
+footer#links .util {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+}
+#btt {
+  margin-left: auto;
+}
+#btt a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4em;
+  height: 2.4em;
+  border-radius: 50%;
+  background: #579ca8;
+  color: #fff;
+}
+#btt a:hover {
+  background: #003f59;
+}
