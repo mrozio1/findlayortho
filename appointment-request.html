@@ -137,45 +137,42 @@
 <p class="note width2">
 	Please note this form is for requesting an appointment. If you need to cancel or reschedule an existing appointment, or if you require immediate attention, please contact our practice directly.
 </p>
-<form action="https://www.findlayortho.com/appointment-request" class="full validate" method="post">
+<form action="https://formspree.io/f/xrpbrwae" class="full validate" method="post">
 
+	<input type="hidden" name="_subject" value="New Appointment Request - Findlay Orthodontics" />
+	<input type="hidden" name="_next" value="https://www.findlayortho.com/thank-you.html" />
+	<input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
-	<input id="required_values" name="required_values" type="hidden" value="Full_Name,Phone_Number" />
-	
     <fieldset class="width2">
 		<legend>Contact Information:</legend>
 		<p class="notice width1 box-round">
 			<strong>Bold</strong> fields are required.
 		</p>
 
-    <label class="" for="Web_Address">
-        <input id="Web_Address" name="sc_form[Web_Address]" type="hidden" /> 
-    </label>
-
     <label class="required first width1" for="Full_Name">
-	<span>Your Name</span> 
-	    <input data-minlength="5" id="Full_Name" name="sc_form[Full_Name]" required="required" type="text" /> 
-	<span class="quiet">First and Last</span></label> 
+	<span>Your Name</span>
+	    <input data-minlength="5" id="Full_Name" name="name" required="required" type="text" />
+	<span class="quiet">First and Last</span></label>
 
-      
+
     <label class="first width1" for="Email">
-	     <span>Your Email Address</span><br /><input id="Email" name="sc_form[Email]" type="email" />
+	     <span>Your Email Address</span><br /><input id="Email" name="email" type="email" />
     </label>
-                       
+
  	<label class="required first width1" for="Phone_Number">
-	<span>Your Phone Number</span> 
-		<input data-minlength="2" id="Phone_Number" name="sc_form[Phone_Number]" required="required" type="text" /></label> 
+	<span>Your Phone Number</span>
+		<input data-minlength="2" id="Phone_Number" name="phone" required="required" type="text" /></label>
 
     <label class="first width1" for="Nature_Of_Appointment">
 		<span>Comment</span>
-	<textarea cols="30" 
-		data-minlength="10" 
+	<textarea cols="30"
+		data-minlength="10"
 		id="Nature_Of_Appointment"
-		name="sc_form[Comment]" 
+		name="message"
 		rows="10"></textarea>
     </label>
-	
-	
+
+
  	</fieldset>
         
 <p>&nbsp;</p>
